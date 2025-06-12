@@ -1,5 +1,6 @@
 // Longer Syntax
 #include <bits/stdc++.h> 
+
 void search(int row, int col, vector<vector<int>>& arr, int n, 
 string &move, vector<string> &ans, vector<vector<int>> &vis)
 {
@@ -50,7 +51,10 @@ vector < string > searchMaze(vector < vector < int >> & arr, int n) {
     string move;
     vector<string> ans;
     vector<vector<int>> vis(n, vector<int>(n,0));
-    if(arr[0][0] == 1) search(0, 0, arr, n, move, ans, vis);
+    if(arr[0][0] == 1) {
+        vis[0][0] = 1;
+        search(0, 0, arr, n, move, ans, vis);
+    } 
     return ans;
 }
 
@@ -90,6 +94,9 @@ vector < string > searchMaze(vector < vector < int >> & arr, int n) {
     vector<vector<int>> vis(n, vector<int>(n,0));
     vector<int> di = {+1, 0, 0, -1};
     vector<int> dj = {0, -1, +1, 0};
-    if(arr[0][0] == 1) search(0, 0, arr, n, move, ans, vis, di, dj);
+    if(arr[0][0] == 1) {
+        vis[0][0] = 1;
+        search(0, 0, arr, n, move, ans, vis, di, dj);
+    }    
     return ans;
 }
